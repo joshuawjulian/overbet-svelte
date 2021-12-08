@@ -1,5 +1,5 @@
 {
-  "name": "~TODO~",
+  "name": "Overbet",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev --host",
@@ -7,8 +7,7 @@
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"update-types": 
-			"npx openapi-typescript https://odsejxtrexakfkqigwrr.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODk0NDEyMywiZXhwIjoxOTQ0NTIwMTIzfQ.pp0k8CluS3Hil-6Rh1gj8o4PFqml9bDKOsWONPCiLGI --output src/lib/types/index.ts"
+    "update-types": "npx openapi-typescript https://odsejxtrexakfkqigwrr.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODk0NDEyMywiZXhwIjoxOTQ0NTIwMTIzfQ.pp0k8CluS3Hil-6Rh1gj8o4PFqml9bDKOsWONPCiLGI --output src/lib/types/index.ts"
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
@@ -20,6 +19,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^1.21.0"
+    "@supabase/supabase-js": "^1.21.0",
+    "uuid": "^8.3.2"
   }
 }

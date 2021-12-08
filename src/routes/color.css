@@ -1,56 +1,31 @@
 :root {
-  --primary-color-h: 210;
-  --primary-color-s: 96%;
-  --primary-color-l: 63%;
-  --primary-color: hsl(
-    var(--primary-color-h),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
+	--color-pri-h: 200;
+	--color-pri-s: 100%;
+	--color-pri-l: 50%;
+	--color-pri: hsl(var(--color-pri-h), var(--color-pri-s), var(--color-pri-l));
+	--color-sec: hsl(
+		calc(var(--color-pri-h) + 180),
+		var(--color-pri-s),
+		var(--color-pri-l)
+	);
+	--color-pri--dark: hsl(
+		var(--color-pri-h),
+		var(--color-pri-s),
+		calc(var(--color-pri-l) - 25%)
+	);
+	--color-pri--light: hsl(
+		var(--color-pri-h),
+		var(--color-pri-s),
+		calc(var(--color-pri-l) + 25%)
+	);
+	--color-pri--desat: hsl(
+		var(--color-pri-h),
+		calc(var(--color-pri-s) - 70%),
+		var(--color-pri-l)
+	);
 
-  /*   lighten */
-  --primary-color--light: hsl(
-    var(--primary-color-h),
-    var(--primary-color-s),
-    calc(var(--primary-color-l) + 25%)
-  );
-
-  /*   darken */
-  --primary-color--dark: hsl(
-    var(--primary-color-h),
-    var(--primary-color-s),
-    calc(var(--primary-color-l) - 25%)
-  );
-
-  /*   complement */
-  --primary-color--inverse: hsl(
-    calc(var(--primary-color-h) + 180),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
-
-  /*   triad */
-  --primary-color--triada-1: hsl(
-    calc(var(--primary-color-h) + 120),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
-  --primary-color--triada-2: hsl(
-    calc(var(--primary-color-h) + 240),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
-
-  /*   analogous */
-  --degree: 15;
-  --primary-color--analogous-1: hsl(
-    calc(var(--primary-color-h) + var(--degree)),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
-  --primary-color--analogous-2: hsl(
-    calc(var(--primary-color-h) - var(--degree)),
-    var(--primary-color-s),
-    var(--primary-color-l)
-  );
+	--color-bg: hsl(71, 8%, 35%);
+	--color-bg--dark: hsl(71, 8%, 15%);
+	--color-bg--light: hsl(0, 0%, 75%);
+	--color-fore: hsl(60, 30, 96);
 }

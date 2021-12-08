@@ -1,5 +1,6 @@
 <script type="ts">
   import { userStore } from "$/lib/stores";
+  import { getUserRole } from "$/lib/db";
   export let showNav = false;
 
   const toggleNav = () => {
@@ -30,6 +31,9 @@
   </nav>
   <section class="login-info">
     {#if $userStore !== null}
+      {#await getUserRole($userStore.id) then userRole}
+        <span>{userRole}</span>
+      {/await}
       <span>{$userStore.email}</span>
       <span><a href="/logout">Logout</a></span>
     {:else}

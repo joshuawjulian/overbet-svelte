@@ -1,45 +1,43 @@
 <script lang="ts">
-  import Header from "$/components/Header.svelte";
-  import { supabase } from "$/lib/supabase";
-  import { getUserRole } from "$lib/db";
+	import TextInput from '$/components/forms/TextInput.svelte';
+	import ColorTest from '$/components/ColorTest.svelte';
+	import { supabase } from '$/lib/supabase';
 
-  import { onMount } from "svelte";
+	let errMsg = '';
 
-  let errMsg = "";
-
-  const allUsers = async () => {
-    let { data, error } = await supabase.from("user_roles").select(`
+	const allUsers = async () => {
+		let { data, error } = await supabase.from('user_roles').select(`
 			id, role,
 			auth_users (
 				email
 			)
 		`);
-    if (error) errMsg = error.message;
-    return data;
-  };
+		if (error) errMsg = error.message;
+		return data;
+	};
 
-  let users = [];
-  let testStr = "";
+	let users = [];
+	let testStr = '';
+	let textValue = '';
 
-  onMount(async () => {
-    users = await allUsers();
-    if (!users) users = [];
-    users.forEach(async (user) => {
-      let role = await getUserRole(user.id);
-      testStr += `user: ${user.id} | role: ${role}\n`;
-    });
-  });
+	let test, test2;
 </script>
 
-<h1>Test page</h1>
-<p>Using this page to test interaction with the database</p>
-<pre>
-	Test String:
-	{testStr}
-</pre>
-{#if errMsg}
-  <p>{errMsg}</p>
-{/if}
-{#each users as user}
-  <pre>{JSON.stringify(user, null, 2)}</pre>
-{/each}
+<div>
+	<h1>Test page</h1>
+	<ColorTest />
+	<TextInput label="Test" bind:value={test} />
+	<TextInput label="Test2" bind:value={test2} />
+
+	<pre>Test: {test}</pre>
+	<pre>Test2: {test2}</pre>
+</div>
+
+<style>
+	div {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		width: 100%;
+	}
+</style>
